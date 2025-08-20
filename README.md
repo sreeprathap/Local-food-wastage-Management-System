@@ -14,7 +14,7 @@ LFWMS is a Streamlit-based data science application designed to reduce food wast
 ## Technologies Used
 - Python 3
 - Streamlit for web app interface
-- SQLite for database management
+- MySQL Workbench for database management
 - Pandas for data processing and analysis
 
 ## Installation
