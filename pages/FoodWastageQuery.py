@@ -7,9 +7,9 @@ st.set_page_config(page_title="Basic Query",layout="wide")
 def create_connection():
     return mysql.connector.connect(
             host="127.0.0.1",
-            user="systemmanage",       # 🔹 your MySQL username
-            password="System123",      # 🔹 your MySQL password
-            database="food_wastage"    # 🔹 your database name
+            user="systemmanage",       
+            password="System123",      
+            database="food_wastage"    
         )
 
 

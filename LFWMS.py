@@ -41,7 +41,7 @@ def add_record(table_name, values):
 
 # --- Get record by ID ---
 def get_record_by_id(table_name, pk_column, pk_value):
-    conn = get_connection()
+    conn = create_connection() 
     cursor = conn.cursor(dictionary=True)
     cursor.execute(f"SELECT * FROM {table_name} WHERE {pk_column}=%s", (pk_value,))
     record = cursor.fetchone()
@@ -62,7 +62,7 @@ def update_record(table_name, pk_column, pk_value, updates):
     set_clause = ", ".join([f"{col}=%s" for col in updates.keys()])
     values = list(updates.values()) + [pk_value]
 
-    conn = get_connection()
+    conn = create_connection()   
     cursor = conn.cursor()
     cursor.execute(f"UPDATE {table_name} SET {set_clause} WHERE {pk_column}=%s", values)
     conn.commit()
@@ -71,7 +71,7 @@ def update_record(table_name, pk_column, pk_value, updates):
 
 # --- Delete record ---
 def delete_record(table_name, pk_column, pk_value):
-    conn = get_connection()
+    conn = create_connection()   
     cursor = conn.cursor()
     cursor.execute(f"DELETE FROM {table_name} WHERE {pk_column}=%s", (pk_value,))
     conn.commit()
